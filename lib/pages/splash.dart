@@ -26,25 +26,30 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 35,
+            height: 80,
           ),
-          const Text(
-            'Book Shop',
-            style: TextStyle(fontSize: 70, fontWeight: FontWeight.w900),
+          const Center(
+            child: Text(
+              'Book Shop',
+              style: TextStyle(fontSize: 70, fontWeight: FontWeight.w900),
+            ),
           ),
          const  SizedBox(
-            height: 20,
+            height: 50,
           ),
-          Image.asset(
-            'assets/gif/splash.jpeg', 
-            width: 300,
-            height: 300, 
-            fit: BoxFit.contain,
+          Center(
+            child: Image.asset(
+              'assets/gif/splash.jpeg', 
+              width: 300,
+              height: 300, 
+              fit: BoxFit.contain,
+            ),
           ),
           const SizedBox(
-            height: 20,
+            height: 250,
           ),
          const  CupertinoActivityIndicator(),
+    
         ],
       ),
     );

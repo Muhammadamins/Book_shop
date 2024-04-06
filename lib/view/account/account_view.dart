@@ -2,7 +2,7 @@ import 'package:bookshop/constant/colors.dart';
 import 'package:bookshop/pages/you_review.dart';
 import 'package:bookshop/view/login/forgot_password_view.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({super.key});
@@ -12,10 +12,9 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
+  List purArr = ["assets/img/p1.jpg", "assets/img/p2.jpg", "assets/img/p3.jpg"];
 
-  List purArr = ["assets/img/p1.jpg","assets/img/p2.jpg","assets/img/p3.jpg"];
-
-    List sResultArr = [
+  List sResultArr = [
     {
       "img": "assets/img/p1.jpg",
       "description":
@@ -23,7 +22,6 @@ class _AccountViewState extends State<AccountView> {
       "rate": 5.0
     },
     {
-    
       "img": "assets/img/p2.jpg",
       "description":
           "#1 international bestseller and award winning history book.",
@@ -62,11 +60,19 @@ class _AccountViewState extends State<AccountView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Abdusalom Karimov",
+                          "Muhammadmin Jo'rayev",
                           style: TextStyle(
                               color: TColor.text,
                               fontSize: 20,
                               fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          '+998 77 007 65 99',
+                          style: GoogleFonts.aladin(),
+                        ),
+                        Text(
+                          '+998 99 662 57 29',
+                          style: GoogleFonts.aladin(),
                         ),
                         Text(
                           "Constantly travelling and keeping up to date with business related books.",
@@ -82,9 +88,10 @@ class _AccountViewState extends State<AccountView> {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(35),
                       child: Image.asset(
-                        "assets/img/u1.png",
+                        "assets/img/rasm.jpg",
                         width: 70,
                         height: 70,
+                        fit: BoxFit.cover,
                       )),
                   const SizedBox(
                     width: 15,
@@ -126,12 +133,11 @@ class _AccountViewState extends State<AccountView> {
                         ]),
                     child: ElevatedButton(
                       onPressed: () {
-                        
                         Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ForgotPasswordView()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgotPasswordView()));
                         // todo
                       },
                       style: ElevatedButton.styleFrom(
@@ -215,8 +221,7 @@ class _AccountViewState extends State<AccountView> {
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20))),
-                )
-                ,
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -224,33 +229,36 @@ class _AccountViewState extends State<AccountView> {
                       var isFirst = purArr.first == iName;
                       var isLast = purArr.last == iName;
                       return Container(
-                        margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 12),
-                        
-                       
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 2, horizontal: 12),
                         padding: isFirst
                             ? const EdgeInsets.only(left: 25)
                             : (isLast
                                 ? const EdgeInsets.only(right: 25)
                                 : null),
                         child: Container(
-                        margin: const EdgeInsets.symmetric(vertical: 2),
-                        
-                        decoration:  BoxDecoration(
-                            borderRadius:  BorderRadius.circular(15),
-                            boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 2, offset: Offset(0, 1))]
-                        ), child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            iName,
-                            height: media.width * 0.5,
-                            fit: BoxFit.fitHeight,
+                          margin: const EdgeInsets.symmetric(vertical: 2),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 2,
+                                    offset: Offset(0, 1))
+                              ]),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              iName,
+                              height: media.width * 0.5,
+                              fit: BoxFit.fitHeight,
+                            ),
                           ),
-                        ),),
+                        ),
                       );
                     }).toList(),
                   ),
                 )
-
               ],
             ),
             Padding(
@@ -263,16 +271,16 @@ class _AccountViewState extends State<AccountView> {
                     fontWeight: FontWeight.w700),
               ),
             ),
-
             ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 25),
-              itemCount: sResultArr.length,
-              itemBuilder: (context, index) {
-                var rObj = sResultArr[index] as Map? ?? {};
-              return YourReviewRow(sObj: rObj);
-            } )
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 25),
+                itemCount: sResultArr.length,
+                itemBuilder: (context, index) {
+                  var rObj = sResultArr[index] as Map? ?? {};
+                  return YourReviewRow(sObj: rObj);
+                })
           ],
         ),
       ),

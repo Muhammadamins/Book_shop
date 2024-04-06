@@ -7,7 +7,6 @@ void main(List<String> args) {
   runApp(const BookShop());
 }
 
-// logosiz versiya
 
 class BookShop extends StatelessWidget {
   const BookShop({super.key});

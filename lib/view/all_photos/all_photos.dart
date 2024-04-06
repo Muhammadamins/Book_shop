@@ -110,7 +110,8 @@ class _PageViewExampleState extends State<PageViewExample> {
   Widget buildPage(String imagePath, String text, int index) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${index + 1} - rasm"),
+        
+        title: Center(child: Text("${index + 1} - rasm")),
       ),
       body: Center(
         child: Container(
